@@ -36,7 +36,7 @@ time.sleep(2)
 
 # Creating DataFrame and iterator
 df = pd.DataFrame(columns=['File name', 'Driving direction'])
-i = 141
+i = 1
 
 def save_csv(dataframe):
     dataframe.to_csv('drive_log.csv', index=False)
