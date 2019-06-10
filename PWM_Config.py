@@ -1,11 +1,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-leftWheels = PWMOutputDevice(21)
-leftWheels.frequency = 1000
-leftWheels.value = 0.50
-
-
 #///////////////// Define Motor Driver GPIO Pins /////////////////
 
 PWM_FORWARD_PIN = 27	
