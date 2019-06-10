@@ -25,7 +25,8 @@ def turn_prediction(img):
 
 start = time.time()
 img = capture_yuv()
-turn_prediction(img)
+prediction = turn_prediction(img)
 end = time.time()
 capture_duration = end - start
 print("Turn took " + str(capture_duration) + " seconds to be predicted.")
+print(prediction)
