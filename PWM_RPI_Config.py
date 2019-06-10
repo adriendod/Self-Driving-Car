@@ -1,10 +1,9 @@
-import RPi.GPIO as GPIO
+from gpiozero import PWMOutputDevice
 from time import sleep
 
 leftWheels = PWMOutputDevice(21)
 leftWheels.frequency = 1000
 leftWheels.value = 0.50
-
 
 #///////////////// Define Motor Driver GPIO Pins /////////////////
 
@@ -16,11 +15,11 @@ PWM_LEFT_PIN = 17
 
 # Initialise objects for H-Bridge PWM pins
 # Set initial duty cycle to 0 and frequency to 1000
-forward = GPIO.PWM(PWM_FORWARD_PIN, 1000)
-reverse = GPIO.PWM(PWM_REVERSE_PIN, 1000)
+forward = PWMOutputDevice(PWM_FORWARD_PIN, True, 0, 1000)
+reverse = PWMOutputDevice(PWM_REVERSE_PIN, True, 0, 1000)
  
-right = GPIO.PWM(PWM_RIGHT_PIN, 1000)
-left = GPIO.PWM(PWM_LEFT_PIN, 1000)
+right = PWMOutputDevice(PWM_RIGHT_PIN, True, 0, 1000)
+left = PWMOutputDevice(PWM_LEFT_PIN, True, 0, 1000)
 
 speed = 0.3
 
