@@ -1,7 +1,9 @@
-import RPi.GPIO as GPIO
+import Jetson.GPIO as GPIO
 from time import sleep
 
 #///////////////// Define Motor Driver GPIO Pins /////////////////
+
+GPIO.setmode(GPIO.BOARD)
 
 PWM_FORWARD_PIN = 27	
 PWM_REVERSE_PIN = 22	
