@@ -2,6 +2,7 @@ from PIL import Image
 import matplotlib.image as mpimg
 from keras.models import load_model
 import time
+import cv2
 
 
 #loading model
