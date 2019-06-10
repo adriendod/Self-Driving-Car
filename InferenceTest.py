@@ -21,7 +21,7 @@ def capture_yuv():
     return img
 
 def turn_prediction(img):
-    prediction = model.predict(img)
+    return model.predict(img)
 
 start = time.time()
 img = capture_yuv()
