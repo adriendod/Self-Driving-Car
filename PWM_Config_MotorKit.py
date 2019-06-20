@@ -1,6 +1,7 @@
 import Jetson.GPIO as GPIO
 from adafruit_motorkit import motorkit
-kit = MotorKit()
+
+kit = MotorKit(i2c=1)
 
 direction = mh.getMotor(1)
 acceleration = mh.getMotor(2)
