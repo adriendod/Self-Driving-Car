@@ -14,10 +14,10 @@ def allStop():
 	kit.motor4.throttle = None
 
 def forwardDrive():
-	kit.motor2.throttle = speed
+	kit.motor2.throttle = -speed
 
 def reverseDrive():
-	kit.motor2.throttle = -speed
+	kit.motor2.throttle = speed
 
 def stopDrive():
 	kit.motor2.throttle = None
