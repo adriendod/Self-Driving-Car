@@ -11,7 +11,7 @@ speed = 0.3
 
 def allStop():
 	kit.motor1.throttle = None
-    kit.motor2.throttle = None
+	kit.motor2.throttle = None
 
 def forwardDrive():
 	kit.motor1.throttle = speed
