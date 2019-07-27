@@ -1,7 +1,5 @@
 import Jetson.GPIO as GPIO
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
-kit = MotorKit()
-from time import sleep
 
 
 mh = Adafruit_MotorHAT(addr=0x60)
