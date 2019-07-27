@@ -1,12 +1,9 @@
 import pygame
 from pygame.locals import *
 import PWM_Config_MotorKit
-import time
-from picamera import PiCamera
 import config
 import pandas as pd
-import datetime
-from threading import Thread
+
 
 
 
