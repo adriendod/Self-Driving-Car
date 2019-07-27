@@ -3,8 +3,8 @@ from adafruit_motorkit import MotorKit
 
 kit = MotorKit()
 
-direction = mh.getMotor(1)
-acceleration = mh.getMotor(2)
+#direction = kit.getMotor(1)
+#acceleration = kit.getMotor(2)
 
 
 speed = 0.3
