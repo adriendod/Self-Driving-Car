@@ -19,12 +19,12 @@ FRAMECAPTURE = pygame.USEREVENT + 1
 pygame.time.set_timer(FRAMECAPTURE, 1000)
 
 #PWM Setup
-PWM_Config.allStop()
+PWM_Config_MotorKit.allStop()
 driving_direction = "straight"
 driving = False
 stopping = False
 
-
+'''
 #Camera setup
 camera = PiCamera()
 camera.resolution = (config.width, config.height)
@@ -33,27 +33,11 @@ camera.rotation=180
 #camera.iso = 800
 camera.start_preview()
 time.sleep(2)
-
+'''
 
 # Creating DataFrame and iterator
 df = pd.DataFrame(columns=['File name', 'Driving direction'])
 i = 1
-
-def save_csv(dataframe):
-    dataframe.to_csv('drive_log.csv', index=False)
-    print("File Saved")
-
-def capture_frame():
-    if driving == True :
-        global i
-        start = time.time()
-        camera.capture("capture " + str(i) + ".jpg")
-        df.loc[i] = ["capture " + str(i) + ".jpg", driving_direction]
-        print("Capture taken:", i)
-        i += 1 
-        end = time.time()
-        capture_duration = end - start
-        print(capture_duration)
 
 
 
@@ -73,7 +57,7 @@ while True:
                 PWM_Config_MotorKit.turnLeft()
                 driving_direction = -1
             elif event.key == K_s:
-                save_csv(df)
+                print("save csv (not implemented)")
         if event.type == pygame.KEYUP:
             if event.key == K_UP:
                 PWM_Config_MotorKit.stopDrive()
@@ -87,8 +71,8 @@ while True:
                 PWM_Config_MotorKit.goStraight()
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
-            th = Thread(target=capture_frame)
-            th.start()
+            print("frame capture")
+
 
 
 
