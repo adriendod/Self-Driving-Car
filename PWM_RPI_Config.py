@@ -1,5 +1,4 @@
 from gpiozero import PWMOutputDevice
-from time import sleep
 
 leftWheels = PWMOutputDevice(21)
 leftWheels.frequency = 1000

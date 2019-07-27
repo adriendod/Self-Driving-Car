@@ -23,7 +23,7 @@ speed = 0.3
 
 def allStop():
 	direction.run(Adafruit_MotorHAT.RELEASE)
-    acceleration.run(Adafruit_MotorHAT.RELEASE)
+	acceleration.run(Adafruit_MotorHAT.RELEASE)
 
 def forwardDrive():
 	acceleration.run(Adafruit_MotorHAT.FORWARD)
