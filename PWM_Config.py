@@ -2,7 +2,7 @@ import Jetson.GPIO as GPIO
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 
 
-mh = Adafruit_MotorHAT()
+mh = Adafruit_MotorHAT(addr=0x60)
 
 direction = mh.getMotor(1)
 acceleration = mh.getMotor(2)
