@@ -2,33 +2,31 @@ import Jetson.GPIO as GPIO
 from adafruit_motorkit import MotorKit
 
 
-kit = MotorKit()
+class MotorDriver:
 
-direction = kit.motor4
-acceleration = kit.motor2
+	def __init__(self):
+		self.kit = MotorKit()
+		self.direction = self.kit.motor4
+		self.acceleration = self.kit.motor2
 
+	def allStop(self):
+		self.acceleration.throttle = None
+		self.direction.throttle = None
 
-speed = 0.3
+	def forwardDrive(self, speed=0.3):
+		self.acceleration.throttle = -speed
 
-def allStop():
-	acceleration.throttle = None
-	direction.throttle = None
+	def reverseDrive(self, speed=0.3):
+		self.acceleration.throttle = speed
 
-def forwardDrive():
-	acceleration.throttle = -speed
+	def stopDrive(self):
+		self.acceleration.throttle = None
 
-def reverseDrive():
-	acceleration.throttle = speed
+	def turnRight(self):
+		self.direction.throttle = 1
 
-def stopDrive():
-	acceleration.throttle = None
+	def turnLeft(self):
+		self.direction.throttle = -1
 
-def turnRight():
-	direction.throttle = 1
-
-def turnLeft():
-	direction.throttle = -1
-
-def goStraight():
-	direction.throttle = None
-
+	def goStraight(self):
+		self.direction.throttle = None

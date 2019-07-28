@@ -1,11 +1,11 @@
 import pygame
 from pygame.locals import *
-import PWM_Config_MotorKit
+from PWM_Config_MotorKit import MotorDriver
 import config
 import pandas as pd
 
 
-
+motor = MotorDriver()
 
 # Initialize Pygame and the virtual screen
 #os.environ['SDL_VIDEODRIVER'] = 'dummy'
@@ -42,30 +42,30 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == K_UP:
-                PWM_Config_MotorKit.forwardDrive()
+                motor.forwardDrive()
                 driving = True
             elif event.key == K_DOWN:
-                PWM_Config_MotorKit.reverseDrive()
+                motor.reverseDrive()
                 stopping = True
             elif event.key == K_RIGHT:
-                PWM_Config_MotorKit.turnRight()
+                motor.turnRight()
                 driving_direction = 1
             elif event.key == K_LEFT:
-                PWM_Config_MotorKit.turnLeft()
+                motor.turnLeft()
                 driving_direction = -1
             elif event.key == K_s:
                 print("save csv (not implemented)")
         if event.type == pygame.KEYUP:
             if event.key == K_UP:
-                PWM_Config_MotorKit.stopDrive()
+                motor.stopDrive()
                 driving = False
             elif event.key == K_DOWN:
-                PWM_Config_MotorKit.stopDrive()
+                motor.stopDrive()
             elif event.key == K_RIGHT:
-                PWM_Config_MotorKit.goStraight()
+                motor.goStraight()
                 driving_direction = 0
             elif event.key == K_LEFT:
-                PWM_Config_MotorKit.goStraight()
+                motor.goStraight()
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
             print("frame capture")
