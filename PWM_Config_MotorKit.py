@@ -2,9 +2,6 @@ import Jetson.GPIO as GPIO
 from adafruit_motorkit import MotorKit
 
 
-class MotorDriver():
-
-
 kit = MotorKit()
 
 direction = kit.motor4
