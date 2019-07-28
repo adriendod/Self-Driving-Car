@@ -10,7 +10,7 @@ def read_cam():
             cv2.imshow('demo',img)
             cv2.waitKey(10)
     else:
-     print "camera open failed"
+     print("camera open failed")
 
     cv2.destroyAllWindows()
 
