@@ -4,6 +4,12 @@ from motor import MotorDriver
 import pandas as pd
 
 
+#camera
+cap = cv2.VideoCapture("nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)1280, height=(int)720,format=(string)NV12, framerate=(fraction)24/1 ! nvvidconv flip-method=2 ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink")
+
+
+
+
 motor = MotorDriver()
 
 # Initialize Pygame and the virtual screen
@@ -38,6 +44,14 @@ i = 1
 
 
 while True:
+    ret, frame = camera.read()
+    screen.fill([0, 0, 0])
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame = np.rot90(frame)
+    frame = pygame.surfarray.make_surface(frame)
+    screen.blit(frame, (0, 0))
+    pygame.display.update()
+    
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == K_UP:
