@@ -8,8 +8,11 @@ class Camera:
 
         self.height = height
         self.width = width
+        self.capture_width = 3280
+        self.capture_height = 2464
+        self.fps = 21
         self.value = np.empty((self.height, self.width, 3), dtype=np.uint8)
-        self.cap = cv2.VideoCapture(-1)
+        self.cap = cv2.VideoCapture(self._gst_str(), cv2.CAP_GSTREAMER)
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.width)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.height)
 
@@ -30,3 +33,7 @@ class Camera:
         # When everything done, release the capture
         self.cap.release()
         cv2.destroyAllWindows()
+
+    def _gst_str(self):
+        return 'nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
+            self.capture_width, self.capture_height, self.fps, self.width, self.height)
