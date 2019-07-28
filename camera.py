@@ -12,28 +12,31 @@ class Camera:
         self.capture_height = 2464
         self.fps = 21
         self.value = np.empty((self.height, self.width, 3), dtype=np.uint8)
-        self.cap = cv2.VideoCapture(self._gst_str(), cv2.CAP_GSTREAMER)
+        self.cap = cv2.cv2.VideoCapture("nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)1280, height=(int)720,format=(string)NV12, framerate=(fraction)24/1 ! nvvidconv flip-method=2 ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink")
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.width)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.height)
 
 
     def capture_frame(self):
-        while (True):
-            # Capture frame-by-frame
-            ret, frame = self.cap.read()
-            print("frame")
-            # Our operations on the frame come here
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        if cap.isOpened():
+            cv2.namedWindow("demo", cv2.WINDOW_AUTOSIZE)
+            while True:
+                ret_val, img = cap.read();
+                cv2.imshow('demo', img)
+                cv2.waitKey(10)
+        else:
+            print("camera open failed")
 
-            # Display the resulting frame
-            cv2.imshow('frame', gray)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
-
-        # When everything done, release the capture
-        self.cap.release()
         cv2.destroyAllWindows()
 
     def _gst_str(self):
         return 'nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
             self.capture_width, self.capture_height, self.fps, self.width, self.height)
+
+
+
+
+
+
+if __name__ == '__main__':
+    capture_frame()
