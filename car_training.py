@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-import PWM_Config_MotorKit
+import motor
 import time
 from picamera import PiCamera
 import config
@@ -61,30 +61,30 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == K_UP:
-                PWM_Config_MotorKit.forwardDrive()
+                motor.forwardDrive()
                 driving = True
             elif event.key == K_DOWN:
-                PWM_Config_MotorKit.reverseDrive()
+                motor.reverseDrive()
                 stopping = True
             elif event.key == K_RIGHT:
-                PWM_Config_MotorKit.turnRight()
+                motor.turnRight()
                 driving_direction = 1
             elif event.key == K_LEFT:
-                PWM_Config_MotorKit.turnLeft()
+                motor.turnLeft()
                 driving_direction = -1
             elif event.key == K_s:
                 save_csv(df)
         if event.type == pygame.KEYUP:
             if event.key == K_UP:
-                PWM_Config_MotorKit.stopDrive()
+                motor.stopDrive()
                 driving = False
             elif event.key == K_DOWN:
-                PWM_Config_MotorKit.stopDrive()
+                motor.stopDrive()
             elif event.key == K_RIGHT:
-                PWM_Config_MotorKit.goStraight()
+                motor.goStraight()
                 driving_direction = 0
             elif event.key == K_LEFT:
-                PWM_Config_MotorKit.goStraight()
+                motor.goStraight()
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
             th = Thread(target=capture_frame)

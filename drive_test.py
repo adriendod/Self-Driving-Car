@@ -1,7 +1,6 @@
 import pygame
 from pygame.locals import *
-from PWM_Config_MotorKit import MotorDriver
-import config
+from motor import MotorDriver
 import pandas as pd
 
 
