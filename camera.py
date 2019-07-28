@@ -9,7 +9,7 @@ class Camera:
         self.height = height
         self.width = width
         self.value = np.empty((self.height, self.width, 3), dtype=np.uint8)
-        self.cap = cv2.VideoCapture(1)
+        self.cap = cv2.VideoCapture(-1)
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.width)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.height)
 
