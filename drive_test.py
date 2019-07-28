@@ -16,7 +16,7 @@ FRAMECAPTURE = pygame.USEREVENT + 1
 pygame.time.set_timer(FRAMECAPTURE, 1000)
 
 #PWM Setup
-PWM_Config_MotorKit.allStop()
+motor.allStop()
 driving_direction = "straight"
 driving = False
 stopping = False
