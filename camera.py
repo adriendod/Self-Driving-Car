@@ -12,7 +12,8 @@ class Camera:
         self.capture_height = 2464
         self.fps = 21
         self.value = np.empty((self.height, self.width, 3), dtype=np.uint8)
-        self.cap = cv2.VideoCapture(self._gst_str(), cv2.CAP_GSTREAMER)
+        self.cap = cv2.VideoCapture(
+            "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)1280, height=(int)720,format=(string)NV12, framerate=(fraction)24/1 ! nvvidconv flip-method=2 ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink")
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.width)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.height)
 
@@ -27,6 +28,18 @@ class Camera:
             print("camera open failed")
 
         cv2.destroyAllWindows()
+
+    def video_to_frames(self, path_output_dir):
+        count = 0
+        while cap.isOpened():
+            success, image = cap.read()
+            if success:
+                cv2.imwrite(os.path.join(path_output_dir, '%d.png') % count, image)
+                count += 1
+            else:
+                break
+        cv2.destroyAllWindows()
+        cap.release()
 
     def _gst_str(self):
         return 'nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (

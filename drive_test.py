@@ -6,11 +6,7 @@ import pandas as pd
 import cv2
 
 #camera
-camera = cv2.VideoCapture("nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)1280, height=(int)720,format=(string)NV12, framerate=(fraction)24/1 ! nvvidconv flip-method=2 ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink")
-
-
-
-
+camera = Camera()
 motor = MotorDriver()
 
 # Initialize Pygame and the virtual screen
@@ -71,6 +67,7 @@ while True:
                 motor.goStraight()
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
+            camera.video_to_frames(self, path_output_dir)
             print("frame capture")
 
 
