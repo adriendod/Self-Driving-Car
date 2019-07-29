@@ -6,14 +6,12 @@ from camera import Camera
 import pandas as pd
 import cv2
 
-#camera
+
 camera = Camera()
 motor = MotorDriver()
 
 # Initialize Pygame and the virtual screen
-#os.environ['SDL_VIDEODRIVER'] = 'dummy'
 pygame.init()
-#pygame.display.set_mode((1,1))
 windowSurfaceObj = pygame.display.set_mode((640,480),1,16)
 FRAMECAPTURE = pygame.USEREVENT + 1
 pygame.time.set_timer(FRAMECAPTURE, 1000)
@@ -68,7 +66,7 @@ while True:
                 motor.goStraight()
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
-            camera.video_to_frames(self, path_output_dir)
+            camera.video_to_frames(self, "/")
             print("frame capture")
 
 

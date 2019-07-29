@@ -24,6 +24,7 @@ class Camera:
                 ret_val, img = self.cap.read()
                 cv2.imshow('demo', img)
                 cv2.waitKey(10)
+                return img
         else:
             print("camera open failed")
 
