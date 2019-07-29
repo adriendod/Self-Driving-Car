@@ -27,17 +27,6 @@ driving_direction = "straight"
 driving = False
 stopping = False
 
-'''
-#Camera setup
-camera = PiCamera()
-camera.resolution = (config.width, config.height)
-#camera.shutter_speed = 100000
-camera.rotation=180
-#camera.iso = 800
-camera.start_preview()
-time.sleep(2)
-'''
-
 # Creating DataFrame and iterator
 df = pd.DataFrame(columns=['File name', 'Driving direction'])
 i = 1
