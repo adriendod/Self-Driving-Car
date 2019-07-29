@@ -19,12 +19,11 @@ class Camera:
 
     def capture_frame(self):
         if self.cap.isOpened():
-            cv2.namedWindow("demo", cv2.WINDOW_AUTOSIZE)
-            while True:
-                ret_val, img = self.cap.read()
-                cv2.imshow('demo', img)
-                cv2.waitKey(10)
-                return img
+            #cv2.namedWindow("demo", cv2.WINDOW_AUTOSIZE)
+            ret_val, img = self.cap.read()
+            #cv2.imshow('demo', img)
+            #cv2.waitKey(10)
+            return img
         else:
             print("camera open failed")
 
