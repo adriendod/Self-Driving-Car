@@ -30,6 +30,7 @@ i = 1
 
 while True:
     camera.capture_frame()
+    camera.capture_frame()
     windowSurfaceObj.fill([0, 0, 0])
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = np.rot90(frame)

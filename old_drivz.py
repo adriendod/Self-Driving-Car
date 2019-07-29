@@ -17,7 +17,7 @@ motor = MotorDriver()
 #os.environ['SDL_VIDEODRIVER'] = 'dummy'
 pygame.init()
 #pygame.display.set_mode((1,1))
-windowSurfaceObj = pygame.display.set_mode((640,480),1,16)
+screen = pygame.display.set_mode((640,480),1,16)
 FRAMECAPTURE = pygame.USEREVENT + 1
 pygame.time.set_timer(FRAMECAPTURE, 1000)
 
@@ -46,7 +46,7 @@ i = 1
 
 while True:
     ret, frame = camera.read()
-    windowSurfaceObj.fill([0, 0, 0])
+    screen.fill([0, 0, 0])
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = np.rot90(frame)
     frame = pygame.surfarray.make_surface(frame)
