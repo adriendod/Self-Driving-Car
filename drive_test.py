@@ -50,7 +50,7 @@ while True:
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame = np.rot90(frame)
     frame = pygame.surfarray.make_surface(frame)
-    screen.blit(frame, (0, 0))
+    windowSurfaceObj.blit(frame, (0, 0))
     pygame.display.update()
 
     for event in pygame.event.get():
