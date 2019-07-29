@@ -67,7 +67,6 @@ while True:
                 motor.goStraight()
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
-            camera.video_to_frames(self, "/")
             print("frame capture")
 
 
