@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81726315-ff2f-4b4e-97ef-5dd50624c693" name="Default Changelist" comment="" />
+    <list default="true" id="81726315-ff2f-4b4e-97ef-5dd50624c693" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/drive_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/drive_test.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/install_opencv.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="675">
@@ -87,14 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/drive_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="29" lean-forward="true" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -136,6 +135,7 @@
       <find>cap</find>
       <find>allst</find>
       <find>camera</find>
+      <find>np</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,9 +151,9 @@
         <option value="$PROJECT_DIR$/PWM_Config_MotorKit.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/camera.py" />
-        <option value="$PROJECT_DIR$/drive_test.py" />
         <option value="$PROJECT_DIR$/opencv_test2.py" />
         <option value="$PROJECT_DIR$/install_opencv.sh" />
+        <option value="$PROJECT_DIR$/drive_test.py" />
       </list>
     </option>
   </component>
@@ -294,16 +294,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drive_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/car_training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -335,6 +325,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" selection-start-line="45" selection-end-line="45" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drive_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="29" lean-forward="true" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
         </state>
       </provider>
     </entry>
