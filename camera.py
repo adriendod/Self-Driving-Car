@@ -47,4 +47,4 @@ class Camera:
             self.capture_width, self.capture_height, self.fps, self.width, self.height)
 
 if __name__ == '__main__':
-    read_cam()
+    capture_frame()
