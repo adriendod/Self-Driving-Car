@@ -3,9 +3,8 @@ from pygame.locals import *
 import motor
 import time
 from picamera import PiCamera
-import config
+from old import config
 import pandas as pd
-import datetime
 from threading import Thread
 
 
