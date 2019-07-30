@@ -29,13 +29,13 @@ count = 1
 
 
 while True:
-    frame = camera.capture_frame()
+"""    frame = camera.capture_frame()
     windowSurfaceObj.fill([0, 0, 0])
     frame = np.rot90(frame)
     frame = pygame.surfarray.make_surface(frame)
     windowSurfaceObj.blit(frame, (0, 0))
     pygame.display.update()
-
+"""
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == K_UP:
