@@ -6,7 +6,9 @@ def read_cam():
     if cap.isOpened():
         cv2.namedWindow("demo", cv2.WINDOW_AUTOSIZE)
         while True:
-            ret_val, img = cap.read();
+            ret_val, img = cap.read()
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            ret, img = cv2.imencode('.jpg', img)
             cv2.imshow('demo',img)
             cv2.waitKey(10)
     else:
