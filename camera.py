@@ -31,7 +31,7 @@ class Camera:
             self.cap.release()
 
     def save_frame(self, df, driving_direction, path_output_dir):
-        global count
+        count = 1
         success, image = self.cap.read()
         if success:
             cv2.imwrite(os.path.join(path_output_dir, '%d.jpg') % count, image)
