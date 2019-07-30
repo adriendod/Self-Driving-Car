@@ -9,6 +9,7 @@ def read_cam():
             ret_val, img = cap.read()
             #img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             #ret, img = cv2.imencode('.jpg', img)
+            img = cv2.resize(img, (224, 224))
             cv2.imshow('demo',img)
             cv2.waitKey(10)
     else:
