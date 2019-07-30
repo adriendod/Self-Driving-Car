@@ -18,31 +18,31 @@ class Camera:
 
     def capture_frame(self):
         if self.cap.isOpened():
-            cv2.namedWindow("demo", cv2.WINDOW_AUTOSIZE)
-            while True:
-                ret_val, img = self.cap.read()
-                cv2.imshow('demo', img)
-                cv2.waitKey(10)
+            ret_val, img = self.cap.read()
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            ret, jpeg = cv2.imencode('.jpg', img)
+            return jpeg
         else:
             print("camera open failed")
+            cv2.destroyAllWindows()
+            cap.release()
 
-        cv2.destroyAllWindows()
+    def save_frame(self, path_output_dir):
+        global count
+        success, image = cap.read()
+        if success:
+            cv2.imwrite(os.path.join(path_output_dir, '%d.jpg') % count, image)
+            df.loc[i] = ["capture " + str(i) + ".jpg", driving_direction]
+            count += 1
+            print("Frame Captured and Saved")
+        else:
+            break
+        cap.release()
 
-    def video_to_frames(self, path_output_dir):
-        count = 0
-        while cap.isOpened():
-            success, image = cap.read()
-            if success:
-                cv2.imwrite(os.path.join(path_output_dir, '%d.png') % count, image)
-                count += 1
-            else:
-                break
+    def stop_capture(self):
         cv2.destroyAllWindows()
         cap.release()
 
     def _gst_str(self):
         return 'nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
             self.capture_width, self.capture_height, self.fps, self.width, self.height)
-
-    if __name__ == '__main__':
-        capture_frame()

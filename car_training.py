@@ -87,8 +87,9 @@ while True:
                 motor.goStraight()
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
-            th = Thread(target=capture_frame)
-            th.start()
+            if driving == True :
+                th = Thread(target=capture_frame)
+                th.start()
 
 
 

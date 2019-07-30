@@ -5,15 +5,15 @@ from motor import MotorDriver
 from camera import Camera
 import pandas as pd
 import cv2
+import datetime
+from threading import Thread
 
 #camera
 camera = Camera()
 motor = MotorDriver()
 
 # Initialize Pygame and the virtual screen
-#os.environ['SDL_VIDEODRIVER'] = 'dummy'
 pygame.init()
-#pygame.display.set_mode((1,1))
 windowSurfaceObj = pygame.display.set_mode((640,480),1,16)
 FRAMECAPTURE = pygame.USEREVENT + 1
 pygame.time.set_timer(FRAMECAPTURE, 1000)
@@ -26,15 +26,13 @@ stopping = False
 
 # Creating DataFrame and iterator
 df = pd.DataFrame(columns=['File name', 'Driving direction'])
-i = 1
+count = 1
 
 
 
 while True:
     frame = camera.capture_frame()
     windowSurfaceObj.fill([0, 0, 0])
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
     frame = np.rot90(frame)
     frame = pygame.surfarray.make_surface(frame)
     windowSurfaceObj.blit(frame, (0, 0))
@@ -69,8 +67,9 @@ while True:
                 motor.goStraight()
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
-            camera.video_to_frames(self, path_output_dir)
             print("frame capture")
+            th = Thread(target=camera.save_frame, args=["/"])
+            th.start()
 
 
 
