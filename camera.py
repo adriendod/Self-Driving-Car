@@ -30,13 +30,11 @@ class Camera:
             cv2.destroyAllWindows()
             self.cap.release()
 
-    def save_frame(self, df, driving_direction, path_output_dir):
-        count = 1
+    def save_frame(self, df, driving_direction, path_output_dir, count):
         success, image = self.cap.read()
         if success:
             cv2.imwrite(os.path.join(path_output_dir, '%d.jpg') % count, image)
             df.loc[count] = ["capture " + str(count) + ".jpg", driving_direction]
-            count += 1
             print("Frame Captured and Saved")
         else:
             self.cap.release()

@@ -59,8 +59,9 @@ while True:
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
             print("frame capture")
-            th = Thread(target=camera.save_frame, args=[df, driving_direction, "/"])
+            th = Thread(target=camera.save_frame, args=[df, driving_direction, "~/SelfDriving/Self-Driving-Car/img", count])
             th.start()
+            count +=1
 
 
 
