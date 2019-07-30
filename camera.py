@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import os
 
 
 class Camera:
@@ -25,22 +26,22 @@ class Camera:
         else:
             print("camera open failed")
             cv2.destroyAllWindows()
-            cap.release()
+            self.cap.release()
 
-    def save_frame(self, path_output_dir):
+    def save_frame(self, df, driving_direction, path_output_dir):
         global count
-        success, image = cap.read()
+        success, image = self.cap.read()
         if success:
             cv2.imwrite(os.path.join(path_output_dir, '%d.jpg') % count, image)
-            df.loc[i] = ["capture " + str(i) + ".jpg", driving_direction]
+            df.loc[count] = ["capture " + str(count) + ".jpg", driving_direction]
             count += 1
             print("Frame Captured and Saved")
         else:
-        cap.release()
+            self.cap.release()
 
     def stop_capture(self):
         cv2.destroyAllWindows()
-        cap.release()
+        self.cap.release()
 
     def _gst_str(self):
         return 'nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (

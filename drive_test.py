@@ -4,8 +4,6 @@ from pygame.locals import *
 from motor import MotorDriver
 from camera import Camera
 import pandas as pd
-import cv2
-import datetime
 from threading import Thread
 
 #camera
@@ -68,7 +66,7 @@ while True:
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
             print("frame capture")
-            th = Thread(target=camera.save_frame, args=["/"])
+            th = Thread(target=camera.save_frame, args=[df, driving_direction, "/"])
             th.start()
 
 
