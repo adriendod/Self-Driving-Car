@@ -19,7 +19,7 @@ class Camera:
     def capture_frame(self):
         if self.cap.isOpened():
             ret_val, img = self.cap.read()
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            #img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             ret, jpeg = cv2.imencode('.jpg', img)
             return jpeg
         else:
