@@ -45,3 +45,6 @@ class Camera:
     def _gst_str(self):
         return 'nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
             self.capture_width, self.capture_height, self.fps, self.width, self.height)
+
+if __name__ == '__main__':
+    read_cam()
