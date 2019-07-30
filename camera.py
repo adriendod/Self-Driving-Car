@@ -36,7 +36,6 @@ class Camera:
             count += 1
             print("Frame Captured and Saved")
         else:
-            break
         cap.release()
 
     def stop_capture(self):
