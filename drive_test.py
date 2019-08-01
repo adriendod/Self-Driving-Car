@@ -1,3 +1,4 @@
+import os
 import pygame
 import numpy as np
 from pygame.locals import *
@@ -6,28 +7,33 @@ from camera import Camera
 import pandas as pd
 from threading import Thread
 
-#camera
+
+# Initialize camera
 camera = Camera()
-motor = MotorDriver()
 
 # Initialize Pygame and the virtual screen
 pygame.init()
 windowSurfaceObj = pygame.display.set_mode((640,480),1,16)
 FRAMECAPTURE = pygame.USEREVENT + 1
-pygame.time.set_timer(FRAMECAPTURE, 1000)
+pygame.time.set_timer(FRAMECAPTURE, 500)
 
-#PWM Setup
+# Initialize motor driver
+motor = MotorDriver()
 motor.allStop()
-driving_direction = "straight"
+driving_direction = 0
 driving = False
 stopping = False
 
 # Creating DataFrame and iterator
-df = pd.DataFrame(columns=['File name', 'Driving direction'])
-count = 1
+training_path = "~/SelfDriving/Self-Driving-Car/Training"
+
+try:
+    pd.read_csv(training_path)
+except:
+    df = pd.DataFrame(columns=['Index', 'File name', 'Driving direction'])
 
 
-
+# Start the Pygame loop
 while True:
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
@@ -59,9 +65,8 @@ while True:
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
             print("frame capture")
-            th = Thread(target=camera.save_frame, args=[df, driving_direction, "~/SelfDriving/Self-Driving-Car/img", count])
+            th = Thread(target=camera.save_frame, args=[df, driving_direction, training_path])
             th.start()
-            count +=1
 
 
 

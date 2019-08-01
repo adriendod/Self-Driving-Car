@@ -9,15 +9,13 @@ class Camera:
 
         self.height = height
         self.width = width
-        self.capture_width = 3280
-        self.capture_height = 2464
+        self.capture_width = 1280
+        self.capture_height = 720
         self.fps = 21
         self.cap = cv2.VideoCapture(
             "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)1280, height=(int)720,format=(string)NV12, "
-            "framerate=(fraction)24/1 ! nvvidconv flip-method=2 ! video/x-raw, width=(int)224, height=(int)224, "
+            "framerate=(fraction)24/1 ! nvvidconv flip-method=2 ! video/x-raw, width=(int)1280, height=(int)720, "
             "format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink")
-        #self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.width)
-        #self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.height)
 
     def capture_frame(self):
         if self.cap.isOpened():
@@ -30,12 +28,17 @@ class Camera:
             cv2.destroyAllWindows()
             self.cap.release()
 
-    def save_frame(self, df, driving_direction, path_output_dir, count):
+    def save_frame(self, df, driving_direction, path_output_dir):
+        try:
+            index = df.iloc[-1][0]
+        except:
+            index = 0
+            
         success, image = self.cap.read()
         if success:
-            cv2.imwrite(os.path.join(path_output_dir, '%d.jpg') % count, image)
-            df.loc[count] = ["capture " + str(count) + ".jpg", driving_direction]
-            print("Frame Captured and Saved")
+            cv2.imwrite(os.path.join(path_output_dir, '%d.jpg') % index, image)
+            df.loc[index] = [index, "capture " + str(index) + ".jpg", driving_direction]
+            print("Frame Saved")
         else:
             self.cap.release()
 
