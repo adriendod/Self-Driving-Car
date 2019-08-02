@@ -64,9 +64,9 @@ while True:
                 motor.goStraight()
                 driving_direction = 0
         if event.type == FRAMECAPTURE:
-            print("frame capture")
-            th = Thread(target=camera.save_frame, args=[df, driving_direction, training_path])
-            th.start()
+            if driving == True :
+                th = Thread(target=camera.save_frame, args=[df, driving_direction, training_path])
+                th.start()
 
 
 
