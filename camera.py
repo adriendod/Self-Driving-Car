@@ -43,7 +43,7 @@ class Camera:
             df.loc[index] = [index, "capture " + str(index) + ".jpg", driving_direction]
             end = time.time()
             capture_time = end - start
-            print("Frame %d Saved in %d mseconds" % index, capture_time)
+            print("Frame {} Saved in {} mseconds".format(str(index), str(capture_time)))
         else:
             self.cap.release()
 
