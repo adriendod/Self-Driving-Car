@@ -13,10 +13,10 @@ class MotorDriver:
 		self.acceleration.throttle = None
 		self.direction.throttle = None
 
-	def forwardDrive(self, speed=0.3):
+	def forwardDrive(self, speed=1):
 		self.acceleration.throttle = -speed
 
-	def reverseDrive(self, speed=0.3):
+	def reverseDrive(self, speed=1):
 		self.acceleration.throttle = speed
 
 	def stopDrive(self):
