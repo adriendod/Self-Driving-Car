@@ -10,6 +10,9 @@ from threading import Thread
 # Creating DataFrame and iterator
 current_directory = os.getcwd()
 training_path = current_directory + "/training"
+
+print(training_path)
+
 try:
     pd.read_csv(training_path)
     print("CSV found at {}".format(training_path))
