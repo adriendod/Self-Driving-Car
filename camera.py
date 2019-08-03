@@ -39,7 +39,7 @@ class Camera:
         success, image = self.cap.read()
         if success:
             start = time.time()
-            cv2.imwrite(os.path.join(path_output_dir, '%d.jpg') % index, image)
+            cv2.imwrite(path_output_dir + str(index) + ".jpg", image)
             df.loc[index] = [index, "capture " + str(index) + ".jpg", driving_direction]
             end = time.time()
             capture_time = end - start
