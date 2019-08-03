@@ -7,6 +7,12 @@ from camera import Camera
 import pandas as pd
 from threading import Thread
 
+# Creating DataFrame and iterator
+training_path = "~/SelfDriving/Self-Driving-Car/Training"
+try:
+    pd.read_csv(training_path)
+except:
+    df = pd.DataFrame(columns=['Index', 'File name', 'Driving direction'])
 
 # Initialize camera
 camera = Camera()
@@ -23,15 +29,6 @@ motor.allStop()
 driving_direction = 0
 driving = False
 stopping = False
-
-# Creating DataFrame and iterator
-training_path = "~/SelfDriving/Self-Driving-Car/Training"
-
-try:
-    pd.read_csv(training_path)
-except:
-    df = pd.DataFrame(columns=['Index', 'File name', 'Driving direction'])
-
 
 # Start the Pygame loop
 while True:
