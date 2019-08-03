@@ -8,11 +8,14 @@ import pandas as pd
 from threading import Thread
 
 # Creating DataFrame and iterator
-training_path = "~/SelfDriving/Self-Driving-Car/Training"
+current_directory = os.getcwd()
+training_path = current_directory + "/training"
 try:
     pd.read_csv(training_path)
+    print("CSV found at {}".format(training_path))
 except:
     df = pd.DataFrame(columns=['Index', 'File name', 'Driving direction'])
+    print("DataFrame Created")
 
 # Initialize camera
 camera = Camera()
