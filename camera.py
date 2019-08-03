@@ -14,9 +14,10 @@ class Camera:
         self.capture_height = 720
         self.fps = 24
         self.cap = cv2.VideoCapture(
-            "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)1280, height=(int)720,format=(string)NV12, "
-            "framerate(fraction)=24/1 ! nvvidconv flip-method=2 ! video/x-raw, width=(int)1280, height=(int)720, "
-            "format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink")
+            "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d,format=(string)NV12, "
+            "framerate=(fraction)%d/1 ! nvvidconv flip-method=2 ! video/x-raw, width=%d, height=%d, "
+            "format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink" % (
+            self.capture_width, self.capture_height, self.fps, self.width, self.height))
 
     def capture_frame(self):
         if self.cap.isOpened():
