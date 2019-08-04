@@ -33,7 +33,7 @@ class Camera:
 
     def save_frame(self, df, driving_direction, path_output_dir):
         try:
-            index = df.iloc[-1][0]
+            index = df.iloc[-1][0] + 1
         except:
             index = 0
 
@@ -41,7 +41,7 @@ class Camera:
         if success:
             start = time.time()
             cv2.imwrite(path_output_dir + str(index) + ".jpg", image)
-            df.iloc[index] = [index, "capture " + str(index) + ".jpg", driving_direction]
+            df.loc[index] = [index, "capture " + str(index) + ".jpg", driving_direction]
             end = time.time()
             capture_time = end - start
             print("Frame {} Saved in {} mseconds".format(str(index), str(capture_time)))
