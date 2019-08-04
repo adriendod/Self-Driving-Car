@@ -9,7 +9,7 @@ from threading import Thread
 
 # Creating DataFrame and iterator
 current_directory = os.getcwd()
-training_path = current_directory + "/training"
+training_path = current_directory + "/training/"
 
 print(training_path)
 
