@@ -13,7 +13,7 @@ class Camera:
         self.width = width
         self.capture_width = 1280
         self.capture_height = 720
-        self.fps = 24
+        self.fps = 120
         self.cap = cv2.VideoCapture(
             "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d,format=(string)NV12, "
             "framerate=(fraction)%d/1 ! nvvidconv flip-method=2 ! video/x-raw, width=%d, height=%d, "
@@ -31,7 +31,7 @@ class Camera:
             cv2.destroyAllWindows()
             self.cap.release()
 
-    def save_frame(self, df, driving_direction, path_output_dir):
+    def save_frame(self, df, driving_direction, training_path):
         try:
             index = df.iloc[-1][0] + 1
         except:
@@ -40,7 +40,7 @@ class Camera:
         success, image = self.cap.read()
         if success:
             start = time.time()
-            cv2.imwrite(path_output_dir + str(index) + ".jpg", image)
+            cv2.imwrite(training_path + str(index) + ".jpg", image)
             df.loc[index] = [index, "capture " + str(index) + ".jpg", driving_direction]
             end = time.time()
             capture_time = end - start
@@ -51,4 +51,8 @@ class Camera:
     def stop_capture(self):
         cv2.destroyAllWindows()
         self.cap.release()
+
+    def save_csv(self, df, training_path):
+        df.to_csv(training_path + 'drive_log.csv', index=False)
+        print("File Saved")
 

@@ -53,7 +53,7 @@ while True:
                 motor.turnLeft()
                 driving_direction = -1
             elif event.key == K_s:
-                print("save csv (not implemented)")
+                camera.save_csv(df, training_path)
         if event.type == pygame.KEYUP:
             if event.key == K_UP:
                 motor.stopDrive()
