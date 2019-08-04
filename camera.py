@@ -41,7 +41,7 @@ class Camera:
         if success:
             start = time.time()
             cv2.imwrite(path_output_dir + str(index) + ".jpg", image)
-            df.loc[index] = [index, "capture " + str(index) + ".jpg", driving_direction]
+            df.iloc[index] = [index, "capture " + str(index) + ".jpg", driving_direction]
             end = time.time()
             capture_time = end - start
             print("Frame {} Saved in {} mseconds".format(str(index), str(capture_time)))
@@ -51,10 +51,4 @@ class Camera:
     def stop_capture(self):
         cv2.destroyAllWindows()
         self.cap.release()
-
-    def _gst_str(self):
-        return 'nvarguscamerasrc ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
-            self.capture_width, self.capture_height, self.fps, self.width, self.height)
-
-
 
