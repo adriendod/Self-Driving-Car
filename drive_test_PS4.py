@@ -57,6 +57,8 @@ while True:
             if j.get_button(1):
                 motor.forwardDrive(steering=steering)
                 driving = False
+        if event.type == pygame.JOYAXISMOTION:
+            motor.forwardDrive(steering=steering)
         if event.type == pygame.JOYBUTTONUP:
             motor.stopDrive()
             driving = False
