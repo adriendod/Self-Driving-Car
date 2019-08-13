@@ -51,7 +51,7 @@ stopping = False
 # Start the Pygame loop
 while True:
     pygame.event.pump()
-    steering = pygame.joystick.Joystick(1).get_axis(0)
+    steering = j.get_axis(0)
     print(steering)
     for event in pygame.event.get():
         if event.type == pygame.JOYBUTTONDOWN:
