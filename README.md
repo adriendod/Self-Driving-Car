@@ -1,3 +1,7 @@
+
+
+-- curently rebuilding the car from the ground up with new hardware, the readme is not up to date--
+
 # Self-Driving-Car
 
 This is a project to build a self driving car out of a toy RC Car.
