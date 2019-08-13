@@ -61,7 +61,7 @@ while True:
             elif j.get_button(9):
                 camera.save_csv(df, training_path)
         if event.type == pygame.JOYBUTTONUP:
-            speed += 0.75
+            speed = 0
             driving = False
 
 
