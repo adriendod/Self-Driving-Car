@@ -16,9 +16,9 @@ class MotorDriver:
 		self.rightMotor.throttle = None
 
 	def forwardDrive(self, speed=0.5, steering=0):
-		if steering > 0 :
+		if steering < 0 :
 			self.leftMotor.throttle = speed
-			self.rightMotor.throttle = speed - abs(steering) / 2
+			self.rightMotor.throttle = speed - abs(steering) / 4
 		else :
-			self.leftMotor.throttle = speed - abs(steering) / 2
+			self.leftMotor.throttle = speed - abs(steering) / 4
 			self.rightMotor.throttle = speed
