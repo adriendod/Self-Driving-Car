@@ -12,10 +12,8 @@ from threading import Thread
 current_directory = os.getcwd()
 training_path = current_directory + "/training/"
 
-print(training_path)
-
 try:
-    pd.read_csv(training_path)
+    pd.read_csv(training_path + 'drive_log.csv')
     print("CSV found at {}".format(training_path))
 except:
     df = pd.DataFrame(columns=['Index', 'File name', 'Driving direction'])
@@ -24,6 +22,7 @@ except:
 
 # Initialize camera
 camera = Camera()
+print("Camera Initialized")
 
 
 # Initialize Pygame and the virtual screen
