@@ -13,7 +13,7 @@ current_directory = os.getcwd()
 training_path = current_directory + "/training/"
 
 try:
-    pd.read_csv(training_path + 'drive_log.csv')
+    df = pd.read_csv(training_path + 'drive_log.csv')
     print("CSV found at {}".format(training_path))
 except:
     df = pd.DataFrame(columns=['Index', 'File name', 'Driving direction'])
