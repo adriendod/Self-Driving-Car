@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="81726315-ff2f-4b4e-97ef-5dd50624c693" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/drive_test_PS4.py" beforeDir="false" afterPath="$PROJECT_DIR$/drive_test_PS4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motor_ps4.py" beforeDir="false" afterPath="$PROJECT_DIR$/motor_ps4.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/drive_test_PS4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="560">
+              <caret line="59" column="43" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="43" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -92,8 +91,8 @@
         <option value="$PROJECT_DIR$/camera.py" />
         <option value="$PROJECT_DIR$/drive_test.py" />
         <option value="$PROJECT_DIR$/PS4.py" />
-        <option value="$PROJECT_DIR$/drive_test_PS4.py" />
         <option value="$PROJECT_DIR$/motor_ps4.py" />
+        <option value="$PROJECT_DIR$/drive_test_PS4.py" />
       </list>
     </option>
   </component>
@@ -358,8 +357,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/drive_test_PS4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="560">
+          <caret line="59" column="43" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="43" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
