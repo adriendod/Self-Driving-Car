@@ -7,7 +7,7 @@ import pandas as pd
 
 class Camera:
 
-    def __init__(self, height=1280, width=720):
+    def __init__(self, width=1280, height=720):
 
         self.height = height
         self.width = width

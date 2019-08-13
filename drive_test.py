@@ -1,11 +1,12 @@
 import os
-import pygame
-import numpy as np
-from pygame.locals import *
-from motor import MotorDriver
-from camera import Camera
-import pandas as pd
 from threading import Thread
+
+import pandas as pd
+import pygame
+from pygame.locals import *
+
+from camera import Camera
+from motor import MotorDriver
 
 # Creating DataFrame and iterator
 current_directory = os.getcwd()
@@ -14,7 +15,7 @@ training_path = current_directory + "/training/"
 print(training_path)
 
 try:
-    pd.read_csv(training_path)
+    pd.read_csv(training_path + 'drive_log.csv')
     print("CSV found at {}".format(training_path))
 except:
     df = pd.DataFrame(columns=['Index', 'File name', 'Driving direction'])
