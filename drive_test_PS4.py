@@ -59,7 +59,7 @@ while True:
                 motor.forwardDrive()
                 driving = True
         if event.type == pygame.JOYBUTTONUP:
-            if event.key == K_UP:
+            if j.get_button(1):
                 motor.stopDrive()
                 driving = False
         if event.type == FRAMECAPTURE:
