@@ -45,22 +45,26 @@ motor = MotorDriver()
 driving_direction = 0
 driving = False
 stopping = False
+speed = 0
 
 
 # Start the Pygame loop
 while True:
     pygame.event.pump()
     steering = j.get_axis(0)
+    motor.forwardDrive(speed, steering)
     for event in pygame.event.get():
         if event.type == pygame.JOYBUTTONDOWN:
             if j.get_button(1):
-                motor.forwardDrive(steering=steering)
+                speed += 0.75
                 driving = True
-        if event.type == pygame.JOYAXISMOTION and driving == True:
-            motor.forwardDrive(steering=steering)
+            elif j.get_button(9):
+                camera.save_csv(df, training_path)
         if event.type == pygame.JOYBUTTONUP:
-            motor.stopDrive()
+            speed += 0.75
             driving = False
+
+
         if event.type == FRAMECAPTURE:
             if driving == True :
                 th = Thread(target=camera.save_frame, args=[df, steering, training_path])
