@@ -51,12 +51,12 @@ stopping = False
 # Start the Pygame loop
 while True:
     pygame.event.pump()
-    steering = j.get_axis(0)
+    steering = j.get_axis(2)
     print(steering)
     for event in pygame.event.get():
         if event.type == pygame.JOYBUTTONDOWN:
             if j.get_button(1):
-                motor.forwardDrive()
+                motor.forwardDrive(steering=steering)
                 driving = True
         if event.type == pygame.JOYBUTTONUP:
             if j.get_button(1):
@@ -64,5 +64,5 @@ while True:
                 driving = False
         if event.type == FRAMECAPTURE:
             if driving == True :
-                th = Thread(target=camera.save_frame, args=[df, driving_direction, training_path])
+                th = Thread(target=camera.save_frame, args=[df, steering, training_path])
                 th.start()
