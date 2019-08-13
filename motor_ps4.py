@@ -12,8 +12,8 @@ class MotorDriver:
 		self.rightMotor.throttle = None
 
 	def stopDrive(self):
-		self.acceleration.throttle = None
-		self.direction.throttle = None
+		self.leftMotor.throttle = None
+		self.rightMotor.throttle = None
 
 	def forwarDrive(self, speed=0.5, steering=0):
 		if steering > 0 :
