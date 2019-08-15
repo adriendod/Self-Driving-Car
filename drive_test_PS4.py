@@ -44,7 +44,6 @@ print("Name of the controller: " + JoyName)
 motor = MotorDriver()
 driving_direction = 0
 driving = False
-stopping = False
 speed = 0
 
 
@@ -63,8 +62,9 @@ while True:
         if event.type == pygame.JOYBUTTONUP:
             speed = 0
             driving = False
-
-
+        if event.type == pygame.KEYDOWN:
+            if event.key == K_s:
+                camera.save_csv(df, training_path)
         if event.type == FRAMECAPTURE:
             if driving == True :
                 th = Thread(target=camera.save_frame, args=[df, steering, training_path])
