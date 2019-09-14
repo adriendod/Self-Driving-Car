@@ -29,7 +29,7 @@ print("Camera Initialized")
 pygame.init()
 windowSurfaceObj = pygame.display.set_mode((640,480),1,16)
 FRAMECAPTURE = pygame.USEREVENT + 1
-pygame.time.set_timer(FRAMECAPTURE, 500)
+pygame.time.set_timer(FRAMECAPTURE, 100)
 
 
 # Get the name of the joystick and print it
