@@ -19,7 +19,7 @@ def turn_prediction(img):
 while True :
     start = time.time()
     img = camera.capture_frame()
-    img = camera.img_preprocessing()
+    img = camera.img_preprocessing(img)
     turn_prediction(img)
     end = time.time()
     capture_duration = end - start

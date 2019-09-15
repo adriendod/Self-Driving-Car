@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81726315-ff2f-4b4e-97ef-5dd50624c693" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/old/motor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InferenceTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/InferenceTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/autonomous_drive.py" beforeDir="false" afterPath="$PROJECT_DIR$/autonomous_drive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/camera.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drive_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/drive_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drive_test_PS4.py" beforeDir="false" afterPath="$PROJECT_DIR$/drive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/motor.py" beforeDir="false" afterPath="$PROJECT_DIR$/motor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/motor_ps4.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/car_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/car_training.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/drive666.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/drive666.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old/old_drivz.py" beforeDir="false" afterPath="$PROJECT_DIR$/old/old_drivz.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
