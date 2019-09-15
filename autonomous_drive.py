@@ -21,7 +21,7 @@ while True :
     start = time.time()
     img = camera.capture_frame()
     cv2.imwrite("stream.jpg", img)
-    img = camera.img_preprocessing("stream.jpg")
+    img = camera.img_preprocessing("./stream.jpg")
     turn_prediction(img)
     end = time.time()
     capture_duration = end - start
