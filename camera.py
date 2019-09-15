@@ -24,7 +24,7 @@ class Camera:
             ret_val, img = self.cap.read()
             # img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             ret, jpeg = cv2.imencode('.jpg', img)
-            return jpeg
+            return img
         else:
             print("camera open failed")
             cv2.destroyAllWindows()
@@ -48,7 +48,6 @@ class Camera:
             self.cap.release()
 
     def img_preprocessing(self, img):
-        img = mpimg.imread(img)
         img = img[400:720, :, :]
         img = cv2.resize(img, (224, 224))
         img = cv2.cvtColor(img, cv2.COLOR_RGB2YUV)
