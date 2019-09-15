@@ -1,7 +1,7 @@
 import time
 from keras.models import load_model
 from camera import Camera
-from old.motor import MotorDriver
+from motor import MotorDriver
 import cv2
 
 #loading model
