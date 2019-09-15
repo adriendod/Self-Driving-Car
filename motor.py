@@ -6,27 +6,19 @@ class MotorDriver:
 
 	def __init__(self):
 		self.kit = MotorKit()
-		self.direction = self.kit.motor4
-		self.acceleration = self.kit.motor2
-
-	def allStop(self):
-		self.acceleration.throttle = None
-		self.direction.throttle = None
-
-	def forwardDrive(self, speed=1):
-		self.acceleration.throttle = -speed
-
-	def reverseDrive(self, speed=1):
-		self.acceleration.throttle = speed
+		self.leftMotor = self.kit.motor2
+		self.rightMotor = self.kit.motor4
+		self.leftMotor.throttle = None
+		self.rightMotor.throttle = None
 
 	def stopDrive(self):
-		self.acceleration.throttle = None
+		self.leftMotor.throttle = None
+		self.rightMotor.throttle = None
 
-	def turnRight(self):
-		self.direction.throttle = 1
-
-	def turnLeft(self):
-		self.direction.throttle = -1
-
-	def goStraight(self):
-		self.direction.throttle = None
+	def forwardDrive(self, speed=0.75, steering=0):
+		if steering < 0 :
+			self.leftMotor.throttle = speed
+			self.rightMotor.throttle = speed - abs(steering) / 2
+		else :
+			self.leftMotor.throttle = speed - abs(steering) / 2
+			self.rightMotor.throttle = speed

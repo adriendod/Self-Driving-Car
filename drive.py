@@ -2,7 +2,7 @@ import os
 import pygame
 import numpy as np
 from pygame.locals import *
-from motor_ps4 import MotorDriver
+from motor import MotorDriver
 from camera import Camera
 import pandas as pd
 from threading import Thread

@@ -1,7 +1,7 @@
 import pygame
 import numpy as np
 from pygame.locals import *
-from motor import MotorDriver
+from old.motor import MotorDriver
 import pandas as pd
 import cv2
 

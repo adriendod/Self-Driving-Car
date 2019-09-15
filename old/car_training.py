@@ -1,9 +1,8 @@
 import pygame
 from pygame.locals import *
-import motor
 import time
 from picamera import PiCamera
-from old import config
+from old import config, motor
 import pandas as pd
 from threading import Thread
 

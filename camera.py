@@ -41,12 +41,22 @@ class Camera:
         if success:
             start = time.time()
             cv2.imwrite(training_path + str(index) + ".jpg", image)
-            df.loc[index] = [index, "capture " + str(index) + ".jpg", driving_direction]
+            df.loc[index] = [index, "capture_" + str(index) + ".jpg", driving_direction]
             end = time.time()
             capture_time = end - start
             print("Frame {} Saved in {} mseconds".format(str(index), str(capture_time)))
         else:
             self.cap.release()
+
+    def img_preprocessing(self, img):
+        img = mpimg.imread(img)
+        img = img[400:720, :, :]
+        img = cv2.resize(img, (224, 224))
+        img = cv2.cvtColor(img, cv2.COLOR_RGB2YUV)
+        img = cv2.GaussianBlur(img, (3, 3), 0)
+        img = img / 255
+        img = img.reshape(1, 224, 224, 3)
+        return img
 
     def stop_capture(self):
         cv2.destroyAllWindows()

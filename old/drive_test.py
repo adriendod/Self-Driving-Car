@@ -6,7 +6,7 @@ import pygame
 from pygame.locals import *
 
 from camera import Camera
-from motor import MotorDriver
+from old.motor import MotorDriver
 
 # Creating DataFrame and iterator
 current_directory = os.getcwd()
