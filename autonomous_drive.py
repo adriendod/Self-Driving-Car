@@ -15,7 +15,7 @@ time.sleep(2)
 
 def turn_prediction(img):
     prediction = model.predict(img)
-    MotorDriver.forwardDrive(0.75, prediction)
+    motor.forwardDrive(0.75, prediction)
 
 while True :
     start = time.time()
