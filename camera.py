@@ -51,7 +51,6 @@ class Camera:
         img = img[400:720, :, :]
         img = cv2.resize(img, (224, 224))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        img = cv2.cvtColor(img, cv2.COLOR_RGB2YUV)
         img = cv2.GaussianBlur(img, (3, 3), 0)
         img = img / 255
         img = img.reshape(1, 224, 224, 3)
