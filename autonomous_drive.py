@@ -15,6 +15,7 @@ time.sleep(2)
 
 def turn_prediction(img):
     prediction = model.predict(img)
+    print(prediction)
     motor.forwardDrive(0.75, prediction)
 
 while True :
@@ -24,4 +25,3 @@ while True :
     turn_prediction(img)
     end = time.time()
     capture_duration = end - start
-    print("Turn took " + str(capture_duration) + " seconds to be predicted.")
