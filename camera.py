@@ -1,7 +1,5 @@
 import cv2
 import time
-import matplotlib.image as mpimg
-import pandas as pd
 
 
 class Camera:
@@ -22,7 +20,6 @@ class Camera:
     def capture_frame(self):
         if self.cap.isOpened():
             ret_val, img = self.cap.read()
-            # img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             ret, jpeg = cv2.imencode('.jpg', img)
             return img
         else:
@@ -48,7 +45,7 @@ class Camera:
             self.cap.release()
 
     def img_preprocessing(self, img):
-        img = img[400:720, :, :]
+        img = img[300:720, :, :]
         img = cv2.resize(img, (224, 224))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         img = cv2.GaussianBlur(img, (3, 3), 0)
