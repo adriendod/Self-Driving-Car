@@ -14,7 +14,7 @@ print("Camera Initialized")
 time.sleep(2)
 
 def turn_prediction(img):
-    prediction = model.predict(img)
+    prediction = min(1, max(-1,model.predict(img) * 1.5))
     print(prediction)
     motor.forwardDrive(0.75, prediction)
 
